@@ -1,3 +1,5 @@
+<img src="/images/sejongLogo.svg" width="100" height="100" /> 
+
 # Sejong-Overflow
 
 ## What is Sejong-Overflow
