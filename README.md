@@ -1,4 +1,4 @@
-<img src="/images/sejongLogo.svg" width="100" height="100" /> 
+<img src="/images/세종대마크.PNG" width="300" height="80" /> 
 
 # Sejong-Overflow
 
