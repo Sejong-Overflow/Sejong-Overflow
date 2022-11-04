@@ -27,8 +27,11 @@ Functions
 * Sharing information about programming contest and extra-school activities
 * Matching for programming team-mates
 
+Language, Stack
+===============
+* JS, JAVA
+* React, Spring, MariaDB, AWS(for backend server), Netlify(for front server)
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+License
+=======
+This project is licensed under the terms of the MIT license. See LICENSE for additional details.
