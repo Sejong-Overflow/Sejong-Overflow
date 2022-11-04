@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to SejongOverflow's documentation!
+SejongOverflow's documentation!
 ==========================================
 
 .. toctree::
@@ -12,9 +12,26 @@ Welcome to SejongOverflow's documentation!
 
 
 
-Indices and tables
-==================
+What is Sejong-Overflow?
+========================
+Sejong-Overflow solves the difficulties that Sejong University students encounter while studying programming
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+* Communities that grow through questions and answers
+* Sharing information related to programming activities
+
+Functions
+=========
+* Programming Community - Bulletin Board
+    * Needs for high code readability
+* User Ranking System
+* Sharing information about programming contest and extra-school activities
+* Matching for programming team-mates
+
+Language, Stack
+===============
+* JS, JAVA
+* React, Spring, MariaDB, AWS(for backend server), Netlify(for front server)
+
+License
+=======
+This project is licensed under the terms of the MIT license. See LICENSE for additional details.
