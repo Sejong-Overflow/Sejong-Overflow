@@ -25,7 +25,7 @@ For further details, please refer to [Features](https://sejong-overflow.readthed
 - React, Spring, MariaDB, AWS(for backend server), Netlify(for front server)
 
 ## License
-This project is licensed under the terms of the MIT license. See LICENSE for additional details.
+This project is licensed under the terms of the Apache-2.0 License. See [LICENSE](https://github.com/Sejong-Overflow/Sejong-Overflow/blob/main/LICENSE) for additional details.
 
 [Documentation Link](https://sejong-overflow.readthedocs.io/en/latest/)
 
