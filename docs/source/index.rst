@@ -34,4 +34,6 @@ Language, Stack
 
 License
 =======
-This project is licensed under the terms of the MIT license. See LICENSE for additional details.
+This project is licensed under the terms of the Apache-2.0 license. See LICENSE_ for additional details.
+
+.. _LICENSE: https://github.com/Sejong-Overflow/Sejong-Overflow/blob/main/LICENSE
