@@ -74,7 +74,7 @@
         <div id="menubar">
           <ul> <!-- 사이트 타이틀 하단 메뉴바 -->
             <li><a href='student_council.html'>학생회</a> <!-- 메뉴바 첫번째 - 학생회 카테고리 -->
-              <ul id='submenu'>
+              <ul id='subtitle'>
                 <li><a href='student_council_introduce.jsp'>학생회 소개</a></li>
                 <li><a href='student_council_photo.jsp'>갤러리</a></li>
                 <li><a href='student_council_events.jsp'>행사</a></li>

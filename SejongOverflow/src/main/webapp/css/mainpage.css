@@ -226,7 +226,7 @@
 }
 
 #table_responsive {
-   width: full; 
+   width: auto;
    height: 100px; 
    background-color: red; 
    
@@ -270,7 +270,7 @@ table, td, tr {
 footer {
    display: inline-block;
    border: 4px solid #dbdad9; 
-   width: full; 
+   width: auto;
    height: 100px; 
    background-color: #e8e7e6; 
    text-align: center; 
@@ -291,7 +291,6 @@ footer {
 #board {
    text-align: center; 
 }
-<<<<<<< HEAD
 
 
 #logo {
@@ -324,13 +323,12 @@ footer {
 }
 
 .menubar {
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 17px;
-  display: inline-block;
-  margin-left: 5%;
-  padding-top: 35px;
-=======
-
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 17px;
+    display: inline-block;
+    margin-left: 5%;
+    padding-top: 35px;
+}
 
 #logo {
   margin-left: 100%; 
@@ -455,7 +453,7 @@ footer {
 footer {
 	display: inline-block;
 	border: 4px solid #dbdad9; 
-	width: full; 
+	width: auto;
 	height: 100px; 
 	background-color: #e8e7e6; 
 	text-align: center; 
@@ -564,7 +562,7 @@ footer {
 footer {
    display: inline-block;
    border: 4px solid #dbdad9; 
-   width: full; 
+   width: auto;
    height: 100px; 
    background-color: #e8e7e6; 
    text-align: center; 
