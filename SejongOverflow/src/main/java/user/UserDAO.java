@@ -1,13 +1,11 @@
 package user;
 
+import util.DatabaseUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-import complaints.ComplaintsDTO;
-import post.PostDTO;
-import util.DatabaseUtil;
 
 public class UserDAO {
 	public int login(String userID,String userPassword) {
@@ -38,7 +36,7 @@ public class UserDAO {
 	}
 	
 	public int join(UserDTO user) {
-		String SQL = "INSERT INTO USER VALUES(?,?,?,?,?,false,?,?,?)";
+		String SQL = "INSERT INTO USER VALUES(?,?,?,?,?,false,?,?,?, '.')";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;

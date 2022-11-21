@@ -1,30 +1,21 @@
 package complaints;
 
-import java.io.File;
-import java.io.IOException;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import util.Gmail;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import complaints.ComplaintsDAO;
-import complaints.ComplaintsDTO;
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
-import javax.mail.Transport;
-import javax.mail.Message;
-import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.Session;
-import javax.mail.Authenticator;
 import java.util.Properties;
-import util.Gmail;
 
 public class ComplaintsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,8 +30,8 @@ public class ComplaintsServlet extends HttpServlet {
 		try {
 			multi = new MultipartRequest(request, savePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 		}catch(Exception e) {
-			request.getSession().setAttribute("messageType","¿À·ù ¸Þ½ÃÁö");
-			request.getSession().setAttribute("mewssageContent", "ÆÄÀÏ Å©±â´Â 10MB¸¦ ³ÑÀ» ¼ö ¾ø½À´Ï´Ù.");
+			request.getSession().setAttribute("messageType","ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½");
+			request.getSession().setAttribute("mewssageContent", "ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ 10MBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 		HttpSession session = request.getSession();
@@ -52,8 +43,8 @@ public class ComplaintsServlet extends HttpServlet {
 		int isStudent= Integer.parseInt(multi.getParameter("isStudent"));
 		
 		if(cmpTitle==null || cmpContent==null||cmpTitle.equals("")||cmpContent.equals("")) {
-			session.setAttribute("messageType", "¿À·ù ¸Þ½ÃÁö");
-			session.setAttribute("messageContent", "³»¿ëÀ» ¸ðµÎ Ã¤¿öÁÖ¼¼¿ä.");
+			session.setAttribute("messageType", "ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½");
+			session.setAttribute("messageContent", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			return;
 		}
 		File file = multi.getFile("cmpFile");
@@ -69,19 +60,19 @@ public class ComplaintsServlet extends HttpServlet {
 		if(result!=1) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù.')");
+			script.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.')");
 			script.println("history.go(-2);");
 			script.println("</script>");
 			script.close();
 			return;
 		}
-		String host="http://localhost:8080/SnS/";
+		String host="http://localhost:8080/";
 			String from="sjswsns@gmail.com";
-			String to="sseunghun99@naver.com";//¹Î¿ø ´ã´çÀÚ ¸ÞÀÏÁÖ¼Ò
-			String subject ="[¼¼Á¾¼ÒÀ¶]¹Î¿øÀÌ Á¢¼öµÇ¾ú½À´Ï´Ù."+cmpDAO.getDate();
-			String content ="Á¦¸ñ: "+cmpTitle+"<br>Á¢¼ö³¯Â¥: "+cmpDAO.getDate()+"<br>"+cmpContent+
+			String to="sseunghun99@naver.com";//ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
+			String subject ="[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."+cmpDAO.getDate();
+			String content ="ï¿½ï¿½ï¿½ï¿½: "+cmpTitle+"<br>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥: "+cmpDAO.getDate()+"<br>"+cmpContent+
 			"\n<a href='" + host + "cmp_View.jsp?isStudent="+isStudent+"&cmpID="+cmpDAO.countCmp(isStudent)+
-					"'><br>¹Î¿ø ¹Ù·Î°¡±â</a>";
+					"'><br>ï¿½Î¿ï¿½ ï¿½Ù·Î°ï¿½ï¿½ï¿½</a>";
 			
 			Properties p = new Properties();
 			p.put("mail.smtp.user",from);
@@ -110,15 +101,15 @@ public class ComplaintsServlet extends HttpServlet {
 				e.printStackTrace();
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("alert('¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù.')");
+				script.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.')");
 				script.println("history.back();");
 				script.println("</script>");
 				script.close();
 				return;
 			}
 		
-		session.setAttribute("messageType", "¼º°ø ¸Þ½ÃÁö");
-		session.setAttribute("messageContent", "¹Î¿ø °Ô½Ã°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+		session.setAttribute("messageType", "ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½");
+		session.setAttribute("messageContent", "ï¿½Î¿ï¿½ ï¿½Ô½Ã°ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("history.go(-2);");

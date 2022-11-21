@@ -12,7 +12,8 @@ public class DatabaseUtil {
 //			String dbPassword="root";
 //			Class.forName("com.mysql.cj.jdbc.Driver");
 //			return DriverManager.getConnection(dbURL,dbID,dbPassword);
-			Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306", "root", "1234");
+			Class.forName("org.mariadb.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/SejongOverflow", "root", "1234");
 			return connection;
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -1,0 +1,34 @@
+<SejongOverflow DATABASE>
+
+CREATE DATABASE IF NOT EXISTS SejongOverflow;
+USE SejongOverflow;
+CREATE TABLE IF NOT EXISTS agree(userID varchar(50), cmpID INT, isStudent INT, userIP varchar(50));
+CREATE TABLE IF NOT EXISTS board(boardID INT, boardName varchar(50), boardURL varchar(50), boardAvailable INT, boardLevel INT);
+CREATE TABLE IF NOT EXISTS cmp(cmpID INT, userID varchar(50), cmpDate DATE, cmpTitle varchar(50), cmpContent varchar(50), cmpDivide varchar(50), cmpFile varchar(50), cmpReadFile varchar(50), agreeCount INT, cmpHit INT, cmpGroup INT, cmpSequence INT, cmpLevel INT, cmpAvailable INT, isStudent INT);
+CREATE TABLE IF NOT EXISTS post(postID INT, boardID INT, userID varchar(50), postDate DATETIME, postTitle varchar(50), postContent varchar(50), postDivide varchar(50), postFile varchar(50), postRealFile varchar(50), agreeCount INT, postHit INT, postGroup INT, postSequence INT , postLevel INT, postAvailable INT);
+CREATE TABLE IF NOT EXISTS report(reportID INT , userID varchar(50) , reportTitle varchar(50) , reportContent varchar(50) , reportDate varchar(50) , reportLink varchar(50) , cmpI INT , postID INT, isStudent INT, boardID INT, processingStatus INT);
+CREATE TABLE IF NOT EXISTS user(userID varchar(50), userPassword varchar(50), userName varchar(50), userEmail varchar(50), userEmailHash varchar(200), userEmailChecked varchar(50), userProfile varchar(50), findPwQuestion varchar(50), findPwAnswer varchar(50), aboutMe varchar(50));
+CREATE TABLE IF NOT EXISTS gallery(galID INT, GalTitle varchar(50), userID varchar(50), galDate varchar(50), galContent varchar(50), galFile varchar(50), galRealFile varchar(50), galHit INT, galAvailable INT);
+CREATE TABLE IF NOT EXISTS likey(userID varchar(50), postID INT, boardID INT, userIP INT);
+CREATE TABLE IF NOT EXISTS page(pageLogo varchar(50), pageImage varchar(50));
+
+<FILE DATABASE>
+CREATE DATABASE IF NOT EXISTS file;
+USE file;
+CREATE TABLE IF NOT EXISTS file(fileName varchar(50), fileRealName varchar(50), downloadCount INT);
+
+agree(String userID, INT cmpID, INT isStudent, String userIP)
+board(INT boardID, String boardName, String boardURL, INT boardAvailable, INT boardLevel)
+cmp(INT cmpID, String userID, String cmpDate, String cmpTitle, String cmpContent, String cmpDivide, String cmpFile, String cmpReadFile, INT agreeCount, INT cmpHit, INT cmpGroup, INT cmpSequence, INT cmpLevel, INT cmpAvailable, INT isStudent)
+post(INT postID, INT boardID, String userID, String postDate, String postTitle, String postContent, String postDivide, String postFile, String postRealFile, INT agreeCount, INT postHit, INT postGroup, INT postSequence, INT agreeCount, INT postHit, INT postGroup, INT postSequence, INT postLevel, INT postAvailable)
+report(INT reportID, String userID, String reportTitle, String reportContent, String reportDate, String reportLink, INT cmpID, INT postID, INT isStudent, INT boardID, INT processingStatus)
+user(String userID, String userPassword, String userName, String userEmail, String userEmailHash, String userEmailChecked, String userProfile, String findPwQuestion, String findPwAnswer, String aboutMe)
+gallery(INT galID, String GalTitle, String userID, String galDate, String galContent, String galFile, String galRealFile, INT galHit, INT galAvailable)
+likey(String userID, INT postID, INT boardID, userIP)
+page(String pageLogo, String pageImage)
+
+File DATABASE
+file(String fileName, String fileRealName, INT downloadCount)
+
+INSERT INTO user VALUES('admin', '1234', 'admin', 'sseunghun99@naver.com',
+

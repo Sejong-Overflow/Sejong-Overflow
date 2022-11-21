@@ -1,12 +1,11 @@
 package board;
 
+import util.DatabaseUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-import board.BoardDTO;
-import util.DatabaseUtil;
 
 public class BoardDAO {
 	public int getNext() {

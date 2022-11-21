@@ -5,11 +5,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD:SnS/WebContent/cmp_to_school_Write.jsp
     <title>세종대학교 소프트웨어융합대학 :: 민원 :: 학교 건의사항 :: 글쓰기</title>
-=======
     <title>세종대학교 소프트웨어융합대학 :: 민원 :: 답변</title>
->>>>>>> 42301f5fb714e241a53d3a04e66005ad76d58f5a:SnS/WebContent/cmp_Reply.jsp
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
@@ -138,7 +135,6 @@
       <header>
         <h1>답변 작성</h1>
       </header>
-<<<<<<< HEAD:SnS/WebContent/cmp_to_school_Write.jsp
       <table class="table table-bordered">
         <tbody>
           <form>
@@ -168,7 +164,6 @@
           </form>
         </tbody>
       </table>
-=======
       <form method="post" action="cmp_ReplyAction.jsp">
       <table class="table table-bordered">
         <tbody>
@@ -207,7 +202,6 @@
    		<p id='footer_content'> 010-0000-0000 | sejongsc3@gmail.com | 학생회관 409호 <br>
    		COPYRIGHT &copy 2019 세종대학교 소프트웨어융합대학 데단한 사람들 All rights reserved.</p>
     </footer>
->>>>>>> 42301f5fb714e241a53d3a04e66005ad76d58f5a:SnS/WebContent/cmp_Reply.jsp
     <script src="js/bootstrap.js"></script>
   </body>
 </html>

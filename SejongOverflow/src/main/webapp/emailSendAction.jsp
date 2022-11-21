@@ -1,16 +1,12 @@
 <%@ page language ="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javax.mail.Transport"%>
-<%@ page import="javax.mail.Message"%>
-<%@ page import="javax.mail.Address"%>
 <%@ page import="javax.mail.internet.InternetAddress"%>
 <%@ page import="javax.mail.internet.MimeMessage"%>
-<%@ page import="javax.mail.Session"%>
-<%@ page import="javax.mail.Authenticator"%>
 <%@ page import="java.util.Properties"%>
 <%@ page import="user.UserDAO"%>
 <%@ page import="util.SHA256"%>
 <%@ page import="util.Gmail"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="javax.mail.*" %>
 <%
 	UserDAO userDAO =new UserDAO();
 	String userID =null;
@@ -37,7 +33,8 @@
 		return;
 	}
 	
-	String host="http://localhost:8080/SnS/";
+//	String host="http://localhost:8080/SnS/";
+	String host="http://localhost:8080/";
 	String from="sjswsns@gmail.com";
 	String to=userDAO.getUserEmail(userID);
 	to=to.split("@")[0]+"@sju.ac.kr";
@@ -50,6 +47,11 @@
 	p.put("mail.smtp.host","smtp.googlemail.com");
 	p.put("mail.smtp.port","465");
 	p.put("mail.smtp.starttls.enable","true");
+
+	// 11/20 추가
+	p.put("mail.smtp.ssl.protocols", "TLSv1.2");
+	p.put("mail.smtp.starttls.required", "true");
+
 	p.put("mail.smtp.auth","true");
 	p.put("mail.smtp.debug","true");
 	p.put("mail.smtp.socketFactory.port","465");
@@ -58,7 +60,16 @@
 	
 	try{
 		Authenticator auth =new Gmail();
-		Session ses=Session.getInstance(p,auth);
+//		Session ses=Session.getInstance(p,auth);
+
+		// 22.11.20 추가
+		Session ses = Session.getDefaultInstance(p,
+				new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication("songseunghun75@gmail.com","cnwhiaduzcarrzxz");
+					}
+				});
+
 		ses.setDebug(true);
 		MimeMessage msg=new MimeMessage(ses);
 		msg.setSubject(subject);

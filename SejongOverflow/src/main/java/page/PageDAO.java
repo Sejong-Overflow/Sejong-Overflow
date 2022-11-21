@@ -1,10 +1,10 @@
 package page;
 
+import util.DatabaseUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import util.DatabaseUtil;
 
 public class PageDAO {
 	public PageDTO getPage() {
@@ -33,7 +33,7 @@ public class PageDAO {
 		return null;
 	}
 	
-	public String searchPageLogo() {//ÆÄÀÏÀÇ ÀÌ¸§ ºÒ·¯¿À´Â ÇÔ¼ö
+	public String searchPageLogo() {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT pageLogo FROM page";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -54,7 +54,7 @@ public class PageDAO {
 		}
 		return null;
 	}
-	public String getPageLogo() {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getPageLogo() {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT pageLogo FROM page";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -97,7 +97,7 @@ public class PageDAO {
 		}
 		return -1;
 	}
-	public String searchPageImage() {//ÆÄÀÏÀÇ ÀÌ¸§ ºÒ·¯¿À´Â ÇÔ¼ö
+	public String searchPageImage() {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT pageImage FROM page";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -118,7 +118,7 @@ public class PageDAO {
 		}
 		return null;
 	}
-	public String getPageImage() {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getPageImage() {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT pageImage FROM page";
 		Connection conn=null;
 		PreparedStatement pstmt = null;

@@ -1,8 +1,7 @@
 package post;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,13 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import post.PostDAO;
-import post.PostDTO;
-
+@WebServlet("/PostServlet")
 public class PostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,8 +27,9 @@ public class PostServlet extends HttpServlet {
 		try {
 			multi = new MultipartRequest(request, savePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 		}catch(Exception e) {
-			request.getSession().setAttribute("messageType","¿À·ù ¸Ş½ÃÁö");
-			request.getSession().setAttribute("mewssageContent", "ÆÄÀÏ Å©±â´Â 10MB¸¦ ³ÑÀ» ¼ö ¾ø½À´Ï´Ù.");
+			System.out.println(e);
+			request.getSession().setAttribute("messageType","ì‘ì„± ì‹¤íŒ¨");
+			request.getSession().setAttribute("mewssageContent", "ì‘ì„±ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			/* response.sendRedirect("post_to_student_council_Write.jsp"); */
 			return;
 		}
@@ -41,10 +39,12 @@ public class PostServlet extends HttpServlet {
 		String postContent = multi.getParameter("postContent");
 		String postDivide = "";
 		int boardID=Integer.parseInt(multi.getParameter("boardID"));
-		
+		System.err.println("DEBUG1");
+
 		if(postTitle==null || postContent==null||postTitle.equals("")||postContent.equals("")) {
-			session.setAttribute("messageType", "¿À·ù ¸Ş½ÃÁö");
-			session.setAttribute("messageContent", "³»¿ëÀ» ¸ğµÎ Ã¤¿öÁÖ¼¼¿ä.");
+			System.err.println("DEBUG2");
+			session.setAttribute("messageType", "ï¿½ï¿½ï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½");
+			session.setAttribute("messageContent", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("history.back();");
@@ -61,15 +61,17 @@ public class PostServlet extends HttpServlet {
 			postFile = multi.getOriginalFileName("postFile");
 			postRealFile = file.getName();
 		}
+		System.err.println("DEBUG3");
 		postDAO.write(new PostDTO(0, 0,userID,"", postTitle,postContent,postDivide,postFile,postRealFile,0,0,0,0,0,0),boardID);
-
-		session.setAttribute("messageType", "¼º°ø ¸Ş½ÃÁö");
-		session.setAttribute("messageContent", "°Ô½Ã±Û ÀÛ¼ºÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+		System.err.println("DEBUG4");
+		session.setAttribute("messageType", "ì‘ì„± ì„±ê³µ");
+		session.setAttribute("messageContent", "ì‘ì„±ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("history.go(-2);");
 		script.println("</script>");
 		script.close();
+		System.err.println("DEBUG5");
 		return;
 	}
 }

@@ -1,10 +1,11 @@
 package complaints;
 
+import util.DatabaseUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import util.DatabaseUtil;
 
 public class ComplaintsDAO {
 
@@ -78,7 +79,7 @@ public class ComplaintsDAO {
 		return -1; 
 	}
 	
-	public String getFile(int cmpID, int isStudent) {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getFile(int cmpID, int isStudent) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT cmpFile FROM CMP WHERE cmpID=? AND isStudent = ?";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -105,7 +106,7 @@ public class ComplaintsDAO {
 		return "";
 	}
 	
-	public String getRealFile(int cmpID,int isStudent) {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getRealFile(int cmpID,int isStudent) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL = "SELECT cmpRealFile FROM CMP WHERE cmpID=? AND isStudent = ?";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -182,7 +183,7 @@ public class ComplaintsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		try {
-			if(searchType.equals("ÃÖ½Å¼ø")) {
+			if(searchType.equals("ï¿½Ö½Å¼ï¿½")) {
 				SQL ="SELECT * FROM CMP WHERE cmpGroup >  (SELECT MAX(cmpGroup) FROM CMP) - ? AND cmpGroup <= (SELECT MAX(cmpGroup) FROM CMP) - ?  AND CONCAT(cmpTitle,cmpContent,userID) LIKE ? AND cmpLevel=0 AND cmpAvailable=1 AND isStudent= ? ORDER BY cmpGroup DESC";
 			}
 			else {
@@ -298,9 +299,9 @@ public class ComplaintsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		try {
-			SQL ="SELECT COUNT(cmpGroup) FROM CMP WHERE cmpGroup > ? AND isStudent= ? ";
-			conn=DatabaseUtil.getConnection();
-			pstmt=conn.prepareStatement(SQL);
+			SQL = "SELECT COUNT(cmpGroup) FROM CMP WHERE cmpGroup > ? AND isStudent= ? ";
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, (pageNumber-1)*10);
 			pstmt.setInt(2,isStudent);
 			rs= pstmt.executeQuery();
@@ -375,7 +376,7 @@ public class ComplaintsDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public static int hit(int cmpID,int isStudent) {
 		String SQL="";
@@ -447,7 +448,7 @@ public class ComplaintsDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int delete(int cmpID, int isStudent) { 
 		String SQL="";
@@ -468,7 +469,7 @@ public class ComplaintsDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int reply(ComplaintsDTO complaintsDTO,ComplaintsDTO parent, int isStudent) {
 		String SQL="";
@@ -517,7 +518,7 @@ public class ComplaintsDAO {
 			try {if(conn!=null) conn.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}	
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public String getUserID(int cmpID,int isStudent) {
 		String SQL="";
@@ -541,6 +542,6 @@ public class ComplaintsDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return null; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }
