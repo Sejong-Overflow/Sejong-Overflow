@@ -1,11 +1,11 @@
 package post;
 
+import util.DatabaseUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import util.DatabaseUtil;
-import page.PageDAO;
 
 public class PostDAO {
 
@@ -102,7 +102,7 @@ public class PostDAO {
 		return -1; 
 	}
 	
-	public String getFile(int boardID,int postID) {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getFile(int postID,int boardID) {
 		String SQL = "";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
@@ -130,18 +130,19 @@ public class PostDAO {
 		return "";
 	}
 	
-	public String getRealFile(int boardID, int postID) {//ÆÄÀÏÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public String getRealFile(int postID, int boardID) {
 		String SQL = "";
 		Connection conn=null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;
 		try {
-			SQL = "SELECT postRealFile FROM post WHERE postID=? AND boardID = ?";
-			conn=DatabaseUtil.getConnection();
-			pstmt=conn.prepareStatement(SQL);
-			pstmt.setInt(1,postID);
+			SQL = "SELECT postRealFile FROM post WHERE postID = ? AND boardID = ?";
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, postID);
 			pstmt.setInt(2, boardID);
 			rs=pstmt.executeQuery();
+			System.err.println(pstmt);
 			if(rs.next()) {
 				if(rs.getString("postRealFile").equals("")) {
 					return "";
@@ -251,7 +252,7 @@ public class PostDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		try {
-			if(searchType.equals("ÃÖ½Å¼ø")) {
+			if(searchType.equals("ï¿½Ö½Å¼ï¿½")) {
 				SQL ="SELECT * FROM post WHERE postGroup >  (SELECT MAX(postGroup) FROM post) - ? AND postGroup <= (SELECT MAX(postGroup) FROM post) - ? AND boardID = ? AND CONCAT(postTitle,postContent,userID) LIKE ? AND postLevel=0 AND postAvailable=1 ORDER BY postGroup DESC";
 			}
 			else {
@@ -301,7 +302,7 @@ public class PostDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		try {
-			if(searchType.equals("ÃÖ½Å¼ø")) {
+			if(searchType.equals("ï¿½Ö½Å¼ï¿½")) {
 				SQL ="SELECT * FROM post WHERE postGroup >  (SELECT MAX(postGroup) FROM post) - ? AND postGroup <= (SELECT MAX(postGroup) FROM post) - ? AND agreeCount >= ? AND CONCAT(postTitle,postContent,userID) LIKE ? AND postLevel=0 AND postAvailable=1 ORDER BY postGroup DESC";
 			}
 			else {
@@ -520,7 +521,7 @@ public class PostDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int hit(int postID,int boardID) {
 		String SQL="";
@@ -592,7 +593,7 @@ public class PostDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int delete(int postID, int boardID) { 
 		String SQL="";
@@ -613,7 +614,7 @@ public class PostDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public int reply(PostDTO postDTO,PostDTO parent, int boardID) {
 		String SQL="";
@@ -664,7 +665,7 @@ public class PostDAO {
 			try {if(conn!=null) conn.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}	
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	public String getUserID(int postID,int boardID) {
 		String SQL="";
@@ -688,6 +689,6 @@ public class PostDAO {
 			try {if(pstmt!=null) pstmt.close();} catch(Exception e) {e.printStackTrace();}
 			try {if(rs!=null) rs.close();} catch(Exception e) {e.printStackTrace();}
 		}
-		return null; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return null; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }

@@ -10,7 +10,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
-<<<<<<< HEAD
   <head>
     <meta charset="utf-8">
     <title>세종대학교 소프트웨어융합대학 :: 학생회 :: 갤러리</title>
@@ -33,7 +32,6 @@
                 <li><a href='student_council_public_money.jsp'>학생회비 내역</a></li>
               </ul>
             </li>
-=======
 <head>
 <meta charset="utf-8">
 <title>세종대학교 소프트웨어융합대학 :: 학생회 :: 갤러리</title>
@@ -47,7 +45,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap"
 	rel="stylesheet">
->>>>>>> 42301f5fb714e241a53d3a04e66005ad76d58f5a
 
 
 <style type="text/css">
@@ -297,8 +294,7 @@ a, a:hover {
     <header>
     	<h1>갤러리</h1>
     </header>
-<<<<<<< HEAD
-    
+
     <div id="container">
     <nav>
       <nav>
@@ -356,7 +352,6 @@ a, a:hover {
         <div class="desc">사진 설명</div>
       </div>
     </nav>
-=======
     <hr>
     <div class="write_button">
     	<a class="btn btn-default" href='student_council_photo_Write.jsp'>글쓰기</a>
@@ -410,7 +405,6 @@ a, a:hover {
 		</div>
 	</div>
 
->>>>>>> 42301f5fb714e241a53d3a04e66005ad76d58f5a
 
 	<footer>
 		<p id='footer_content' style="position:absolute;bottom:0;width:100%;height:70px;">

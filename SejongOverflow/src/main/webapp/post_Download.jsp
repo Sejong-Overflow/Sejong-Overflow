@@ -7,6 +7,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.net.*" %>
 <%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="post.PostDAO" %>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -44,30 +45,30 @@
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
-		int cmpID = 0;
-		if(request.getParameter("cmpID")!=null){
-			cmpID=Integer.parseInt(request.getParameter("cmpID"));
+		int postID = 0;
+		if(request.getParameter("postID")!=null){
+			postID=Integer.parseInt(request.getParameter("postID"));
 		}
-		if(cmpID == 0){
+		if(postID == 0){
 			session.setAttribute("messageType","오류 메시지");
 			session.setAttribute("messageContent","접근할 수 없습니다.");
-			response.sendRedirect("cmp_to_student_council.jsp");
+			response.sendRedirect("post.jsp?boardID=1");
 		}
-		int isStudent = -1;
-		if (request.getParameter("isStudent") != null) {
-			isStudent = Integer.parseInt(request.getParameter("isStudent"));
+		int boardID = -1;
+		if (request.getParameter("boardID") != null) {
+			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
 		String root = request.getSession().getServletContext().getRealPath("/");
 		String savePath = root + "upload";
 		String fileName="";
 		String realFile="";
-		ComplaintsDAO cmpDAO = new ComplaintsDAO();
-		fileName = cmpDAO.getFile(cmpID,isStudent);
-		realFile = cmpDAO.getRealFile(cmpID,isStudent);
+		PostDAO postDAO = new PostDAO();
+		fileName = postDAO.getFile(postID, boardID);
+		realFile = postDAO.getRealFile(postID, boardID);
 		if (fileName.equals("") || realFile.equals("")){
 			session.setAttribute("messageType","오류 메시지");
-			session.setAttribute("messageContent","접근할 수 없습니다.");
-			response.sendRedirect("cmp_to_student_council.jsp");
+			session.setAttribute("messageContent","접근할 수 없습니다!");
+			response.sendRedirect("post.jsp?boardID=" + boardID);
 			return;
 		}
 		InputStream in = null;
@@ -75,8 +76,8 @@
 		File file =null;
 		boolean skip = false;
 		String client = "";
-		try{
-			try{
+		try {
+			try {
 				file = new File(savePath, realFile); 
 				in = new FileInputStream(file);
 			} catch (FileNotFoundException e){
