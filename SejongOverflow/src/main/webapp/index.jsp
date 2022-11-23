@@ -72,8 +72,8 @@
 <div id="wrapper">
     <header>
 
-        <nav id='first_area'>
-            <a href='index.jsp'><img src="imgs/software_convergence_logo.PNG" id='logo' alt="소융대 로고"></a>
+<%--        <nav id='first_area'>--%>
+<%--            <a href='index.jsp'><img src="/imgs/software_convergence_logo.PNG" id='logo' alt="소융대 로고"></a>--%>
             <!-- 소융대 로고 -->
             <%--        <div id="menubar">--%>
             <%--            <ul> <!-- 사이트 타이틀 하단 메뉴바 -->--%>
@@ -127,7 +127,7 @@
             <%--        </div> <!-- 메뉴바 -->--%>
             <%--        <h2 id='language'>한국어 / EN </h2> <!--영어, 한글 버전 바꾸는 버튼-->--%>
             <%--        <h2 id='login'> LOGIN</h2> <!-- 로그인 버튼-->--%>
-        </nav>
+<%--        </nav>--%>
     <nav class="navbar navbar-default"
          style="background:none;border:none;font-size:22px;margin:0 1%; padding:2%; color:#000000;">
         <div class="container-fluid">

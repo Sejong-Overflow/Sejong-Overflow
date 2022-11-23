@@ -65,7 +65,7 @@
 		script.close();
 		return;
 	}
-	String host="http://localhost:8080/SnS/";
+	String host="http://localhost:8080/";
 	String from="sjswsns@gmail.com";
 	String to=userEmail.split("@")[0]+"@sju.ac.kr";
 	String temporary=userDAO.getRamdomPassword(6);
@@ -120,7 +120,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/PSB.css">
     <link rel="stylesheet" href="login_page.css">
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body>
     <header>
