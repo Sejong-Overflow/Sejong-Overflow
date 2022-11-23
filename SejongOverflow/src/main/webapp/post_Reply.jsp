@@ -5,11 +5,8 @@
 <html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD:SnS/WebContent/student_council_events_Write.jsp
     <title>세종대학교 소프트웨어융합대학 :: 학생회 :: 행사 :: 글쓰기</title>
-=======
     <title>세종대학교 소프트웨어융합대학 :: 답글작성</title>
->>>>>>> 42301f5fb714e241a53d3a04e66005ad76d58f5a:SnS/WebContent/post_Reply.jsp
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
@@ -134,6 +131,12 @@
                <th>제목: </th>
                <td><input type="text" placeholder="제목을 입력하세요. " name="postTitle" maxlength="50" class="form-control"/></td>
             </tr>
+            <% if (boardID == 2 || boardID == 3) { %>
+            <tr>
+                <th>코드: </th>
+                <td><textarea cols="10" placeholder="내용을 입력하세요. " name="postCode" maxlength="2048" style="height:350px;" class="form-control"></textarea></td>
+            </tr>
+            <% } %>
             <tr>
                <th>내용: </th>
                <td><textarea cols="10" placeholder="내용을 입력하세요. " name="postContent" maxlength="2048" style="height:350px;" class="form-control"></textarea></td>
@@ -147,11 +150,7 @@
       </table>
       </form>
       </section>
-      
-      <footer>
-   		<p id='footer_content'> 010-0000-0000 | sejongsc3@gmail.com | 학생회관 409호 <br>
-   		COPYRIGHT &copy 2019 세종대학교 소프트웨어융합대학 데단한 사람들 All rights reserved.</p>
-    </footer>
+
     <script src="js/bootstrap.js"></script>
   </body>
 </html>

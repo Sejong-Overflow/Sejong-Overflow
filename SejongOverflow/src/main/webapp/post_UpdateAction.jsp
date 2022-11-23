@@ -46,7 +46,7 @@
 		script.close();
 		return;		
 	} else {
-		if (request.getParameter("postTitle") == null || request.getParameter("cmpContent") == null
+		if (request.getParameter("postTitle") == null
 		|| request.getParameter("postTitle").equals("")
 		|| request.getParameter("postContent").equals("")) {
 	PrintWriter script = response.getWriter();
@@ -59,7 +59,7 @@
 		} else {
 	PostDAO postDAO = new PostDAO();
 	int result = postDAO.update(postID, request.getParameter("postTitle"),
-			request.getParameter("postContent"),boardID);
+			request.getParameter("postContent"),boardID, request.getParameter("postCode"));
 	if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");

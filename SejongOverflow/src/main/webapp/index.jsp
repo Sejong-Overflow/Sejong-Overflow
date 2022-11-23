@@ -201,33 +201,35 @@
                 </button>
                 <h4 class="modal-title">로그인</h4>
             </div>
-            <script>
-                $(document).ready(function () {
-                    $('btnLogin').click(function () {
-                        var action = $('#frmLogin').attr("action");
-                        var form_data = {
-                            user_id: $('#userID').val(),
-                            user_pw: $('#userPassword').val()
-                        };
-                        $.ajax({
-                            type: "POST",
-                            url: action,
-                            data: form_data,
-                            success: function (response) {
-                                if (response.trim() == "success") {
-                                    sessionStorage.setItem("user_id", form_data.user_id);
-                                    $('#msg').html("<p style='color:green;font-weight:bold'>로그인 성공!</p>");
-                                } else {
-                                    $('#msg').html("<p style='color:red'>아이디 또는 비밀번호가 잘못되었습니다.</p>");
-                                }
-                            },
-                            error: function () {
-                                $('#msg').html("<h2>Error</h2>");
-                            }
-                        });
-                    });
-                });
-            </script>
+<%--            <script>--%>
+<%--                $(document).ready(function () {--%>
+<%--                    $('btnLogin').click(function () {--%>
+<%--                        var action = $('#frmLogin').attr("action");--%>
+<%--                        var form_data = {--%>
+<%--                            user_id: $('#userID').val(),--%>
+<%--                            user_pw: $('#userPassword').val()--%>
+<%--                        };--%>
+<%--                        $.ajax({--%>
+<%--                            type: "POST",--%>
+<%--                            url: action,--%>
+<%--                            data: form_data,--%>
+<%--                            success: function (response) {--%>
+<%--                                if (response.trim() == "success") {--%>
+<%--                                    sessionStorage.setItem("user_id", form_data.user_id);--%>
+<%--                                    $('#msg').html("<p style='color:green;font-weight:bold'>로그인 성공!</p>");--%>
+<%--                                } else {--%>
+<%--                                    $('#msg').html("<p style='color:red'>아이디 또는 비밀번호가 잘못되었습니다.</p>");--%>
+<%--                                }--%>
+<%--                                window.location.reload();--%>
+<%--                            },--%>
+<%--                            error: function () {--%>
+<%--                                $('#msg').html("<h2>Error</h2>");--%>
+<%--                                window.location.reload();--%>
+<%--                            }--%>
+<%--                        });--%>
+<%--                    });--%>
+<%--                });--%>
+<%--            </script>--%>
             <div class="modal-body">
                 <form action="userLoginAction.jsp" id="frmLogin" method="post">
                     <div class="form-group">

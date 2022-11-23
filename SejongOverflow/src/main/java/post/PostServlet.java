@@ -37,12 +37,11 @@ public class PostServlet extends HttpServlet {
 		String userID = multi.getParameter("userID");
 		String postTitle = multi.getParameter("postTitle");
 		String postContent = multi.getParameter("postContent");
+		String postCode = multi.getParameter("postCode");
 		String postDivide = "";
 		int boardID=Integer.parseInt(multi.getParameter("boardID"));
-		System.err.println("DEBUG1");
 
 		if(postTitle==null || postContent==null||postTitle.equals("")||postContent.equals("")) {
-			System.err.println("DEBUG2");
 			session.setAttribute("messageType", "���� �޽���");
 			session.setAttribute("messageContent", "������ ��� ä���ּ���.");
 			PrintWriter script = response.getWriter();
@@ -61,9 +60,7 @@ public class PostServlet extends HttpServlet {
 			postFile = multi.getOriginalFileName("postFile");
 			postRealFile = file.getName();
 		}
-		System.err.println("DEBUG3");
-		postDAO.write(new PostDTO(0, 0,userID,"", postTitle,postContent,postDivide,postFile,postRealFile,0,0,0,0,0,0),boardID);
-		System.err.println("DEBUG4");
+		postDAO.write(new PostDTO(0, 0,userID,"", postTitle,postContent,postDivide,postFile,postRealFile,0,0,0,0,0,0,postCode),boardID);
 		session.setAttribute("messageType", "작성 성공");
 		session.setAttribute("messageContent", "작성에 성공하였습니다.");
 		PrintWriter script = response.getWriter();
@@ -71,7 +68,6 @@ public class PostServlet extends HttpServlet {
 		script.println("history.go(-2);");
 		script.println("</script>");
 		script.close();
-		System.err.println("DEBUG5");
 		return;
 	}
 }

@@ -485,6 +485,7 @@
         </header>
         <div class="find_content">
             <form method="get" action="post.jsp?boardID=<%=boardID %>" class="form-inline mt-3">
+                <input type="hidden" name="boardID" value="<%=boardID %>">
                 <select name="searchType" class="form-control mx-1 mt-2">
                     <option value="최신순" <%
                         if (searchType.equals("최신순"))

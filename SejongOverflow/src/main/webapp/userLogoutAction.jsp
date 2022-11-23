@@ -3,6 +3,5 @@
 	session.invalidate();
 %>
 <script>
-	history.back();
-	loaction.reload(true);
+	window.location=document.referrer;
 </script>

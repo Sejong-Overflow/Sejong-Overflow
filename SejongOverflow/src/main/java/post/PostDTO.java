@@ -16,6 +16,7 @@ public class PostDTO {
 	int postSequence;
 	int postLevel;
 	int postAvailable;
+	String postCode;
 
 	public int getPostID() {
 		return postID;
@@ -107,12 +108,21 @@ public class PostDTO {
 	public void setPostAvailable(int postAvailable) {
 		this.postAvailable = postAvailable;
 	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
 	public PostDTO() {
 
 	}
 	public PostDTO(int postID, int boardID, String userID, String postDate, String postTitle, String postContent,
 			String postDivide, String postFile, String postRealFile, int agreeCount, int postHit, int postGroup,
-			int postSequence, int postLevel, int postAvailable) {
+			int postSequence, int postLevel, int postAvailable, String postCode) {
 		this.postID = postID;
 		this.boardID = boardID;
 		this.userID = userID;
@@ -128,6 +138,7 @@ public class PostDTO {
 		this.postSequence = postSequence;
 		this.postLevel = postLevel;
 		this.postAvailable = postAvailable;
+		this.postCode = postCode;
 	}
 	
 }
