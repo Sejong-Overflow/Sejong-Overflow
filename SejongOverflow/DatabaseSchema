@@ -12,6 +12,19 @@ CREATE TABLE IF NOT EXISTS gallery(galID INT, GalTitle varchar(50), userID varch
 CREATE TABLE IF NOT EXISTS likey(userID varchar(50), postID INT, boardID INT, userIP INT);
 CREATE TABLE IF NOT EXISTS page(pageLogo varchar(50), pageImage varchar(50));
 
+INSERT INTO board VALUES(1, '공지사항', 'post.jsp?boardID=1', 1, 2);
+INSERT INTO board VALUES(2, '코딩 F&A', 'post.jsp?boardID=2', 1, 1);
+INSERT INTO board VALUES(3, '코딩 Q&A', 'post.jsp?boardID=3', 1, 1);
+INSERT INTO board VALUES(4, '채용 정보', 'post.jsp?boardID=4', 1, 1);
+INSERT INTO board VALUES(5, '졸업생에게 묻는다', 'post.jsp?boardID=5', 1, 1);
+INSERT INTO board VALUES(6, '취창업 후기', 'post.jsp?boardID=6', 1, 1);
+INSERT INTO board VALUES(7, '팀원 모집', 'post.jsp?boardID=7', 1, 1);
+INSERT INTO board VALUES(8, '교내 공모전 & 대회', 'post.jsp?boardID=8', 1, 1);
+INSERT INTO board VALUES(9, '교외 공모전 & 대회', 'post.jsp?boardID=9', 1, 1);
+INSERT INTO board VALUES(10, '자유 게시판', 'post.jsp?boardID=10', 1, 1);
+
+
+
 <FILE DATABASE>
 CREATE DATABASE IF NOT EXISTS file;
 USE file;
