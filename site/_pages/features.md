@@ -2,9 +2,8 @@
 layout: page
 title: Features
 permalink: /features/
-image: 01.jpg
+image: features1.png
 ---
-
 
 <span style = " font-size:2em;  color: green;">
 <strong> Functions</strong>
@@ -15,10 +14,6 @@ image: 01.jpg
 - Sharing information about programming contest and extra-school activities
 - Matching for programming team-mates
 
-
-
-
-
 <span style = " font-size:2em;  color: green;">
 <strong>Language, Stack</strong>
 </span>
@@ -26,4 +21,3 @@ image: 01.jpg
 - JS, JAVA
 - React, Spring, MariaDB, Netlify(for front server)
 - planning AWS(for backend server)
-

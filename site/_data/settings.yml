@@ -9,7 +9,7 @@ description: Zolan is modern minimal theme for Jekyll
 # Author Settings
 author:
   name: Sejong-Overflow Team
-  image: 01.jpg
+  image: about_page.png
   say-hello: <strong>Sejong-Overflow</strong>
   bio: Sejong-Overflow solves the difficulties that Sejong University students encounter while studying programming. <br><ul><li>Communities that grow through questions and answers</li> <li>Sharing information related to programming activities</li> <li>User-based system For further <a href="https://sejong-overflow.readthedocs.io/en/latest/">details</a>, please refer to Features</li></ul>
 
