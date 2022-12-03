@@ -1,0 +1,27 @@
+---
+layout: post
+title: Version 1.1
+date: 2022-12-2 15:01:35 +0300
+image: 05.jpg
+tags: Resources
+---
+
+Introducing Sejong Overflow 1.1
+
+## Sejong Overflow 1.1
+
+1. Posting recommendation function added
+2. Added reply function (send notification when reply is sent)
+3. Added community board
+4. Admin page
+5. Notice page
+6. Added code block for code readability
+7. Can freely create, close, set writing permission, and modify bulletin board
+8. Add mail function
+9. Profile image
+10. Reporting system
+11. Authorization for admin
+12. Kick bad person
+13. View count function
+14. File attachment function to posts
+15. Searching function for posts
