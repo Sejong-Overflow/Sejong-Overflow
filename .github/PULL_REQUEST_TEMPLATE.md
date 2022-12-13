@@ -20,7 +20,6 @@
 [ ] New rule   
 [ ] Changes an existing rule   
 [ ] Add autofix to a rule  
-[ ] Add a CLI option  
 [ ] Add something to the core  
 [ ] Other, please explain:  
 
