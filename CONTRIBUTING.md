@@ -6,8 +6,8 @@ Before sending your pull requests, make sure you do the following:
 
 -   Read the [contributing guidelines](CONTRIBUTING.md).
 -   Read the [Code of Conduct](CODE_OF_CONDUCT.md).
--   Check if your changes are consistent with the
-    [guidelines](#general-guidelines-and-philosophy-for-contribution).
+-   Check if your changes are consistent with the guidelines
+
 
 ## How to become a contributor and submit your own code
 
